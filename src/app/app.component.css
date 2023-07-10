@@ -1,0 +1,35 @@
+.header {
+  font-weight: bold
+}
+
+.input {
+  min-width: 150px;
+  max-width: 300px;
+}
+
+.button {
+  min-width: 150px;
+  max-width: 300px;
+}
+
+.input-block {
+  padding-right: 8px;
+}
+
+.table {
+  border: 1px solid #eee;
+  table-layout: fixed;
+  margin-bottom: 20px;
+}
+
+.mat-mdc-row:nth-child(odd) {
+  background: #fff;
+}
+
+.mat-mdc-row:nth-child(even) {
+  background: #F7F7F7;
+}
+
+.mat-mdc-cell {
+  color: black;
+}

@@ -1,0 +1,65 @@
+<!--Заголовок-->
+<div class="content" role="main">
+  <h1 class="header">Университеты мира</h1>
+  <form class="form">
+    <table class="input-goupe" cellspacing="0">
+      <tr>
+        <!-- Страна -->
+        <td class="input-block">
+          <mat-form-field class="input">
+            <input matInput
+                   name="countryNameFilter"
+                   placeholder="Страна на англ."
+                   [(ngModel)]="countryNameFilter">
+          </mat-form-field>
+        </td>
+
+        <!-- Имя -->
+        <td class="input-block">
+          <mat-form-field class="input">
+            <input matInput
+                   name="nameOfUniversityFilter"
+                   placeholder="Имя на англ."
+                   [(ngModel)]='nameOfUniversityFilter'>
+          </mat-form-field>
+        </td>
+
+        <!-- Показать -->
+        <td class="input-block">
+          <button mat-raised-button class="button" (click)="searchUniversity()">Показать</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <table mat-table [dataSource]="dataSourceForTable" class="mat-elevation-z8 table">
+    <!-- No. -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Страна -->
+    <ng-container matColumnDef="countryName">
+      <th mat-header-cell *matHeaderCellDef> Страна </th>
+      <td mat-cell *matCellDef="let element"> {{element.countryName}} </td>
+    </ng-container>
+
+    <!-- Имя университета -->
+    <ng-container matColumnDef="nameOfUniversity">
+      <th mat-header-cell *matHeaderCellDef> Имя университета </th>
+      <td mat-cell *matCellDef="let element"> {{element.nameOfUniversity}} </td>
+    </ng-container>
+
+    <!-- Эл. почта -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Эл. почта </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<router-outlet></router-outlet>
